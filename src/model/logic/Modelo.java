@@ -38,6 +38,11 @@ public class Modelo {
 	{
 		return datos.darTamano();
 	}
+	
+	public ArregloDinamico darDatos()
+	{
+		return (ArregloDinamico) datos;
+	}
 
 	/**
 	 * Requerimiento de agregar dato

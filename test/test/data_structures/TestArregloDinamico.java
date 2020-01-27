@@ -25,13 +25,19 @@ public class TestArregloDinamico {
 
 	@Test
 	public void testArregloDinamico() {
+		setUp1();
 		// TODO
+		assertTrue(arreglo.darCapacidad()==TAMANO);
 	}
 
 	@Test
 	public void testDarElemento() {
+		setUp1();
 		setUp2();
 		// TODO
+		for(int i = 0; i < TAMANO*2; i++) {
+		assertEquals(""+i, arreglo.darElemento(i));
+		}
 	}
 
 }
