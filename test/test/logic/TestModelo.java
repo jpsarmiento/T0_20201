@@ -18,7 +18,7 @@ public class TestModelo {
 
 	public void setUp2() {
 		for(int i =0; i< CAPACIDAD;i++){
-			modelo.agregar(""+i);
+			modelo.agregar(i);
 		}
 	}
 
@@ -50,7 +50,7 @@ public class TestModelo {
 		setUp2();
 		for(int i = 0; i < CAPACIDAD; i++)
 		{
-		assertEquals(i+"", modelo.buscar(""+i));
+		assertEquals(i, modelo.buscar(i));
 		}
 		// TODO Completar la prueba
 	}
@@ -59,8 +59,8 @@ public class TestModelo {
 	public void testEliminar() {
 		setUp1();
 		setUp2();
-		assertEquals(null, modelo.eliminar(""+312361718));
-		assertEquals(""+69, modelo.eliminar(""+69));
+		assertEquals(null, modelo.eliminar(312361718));
+		assertEquals(69, modelo.eliminar(69));
 		// TODO Completar la prueba
 		
 	}

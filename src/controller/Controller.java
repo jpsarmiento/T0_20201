@@ -5,7 +5,7 @@ import java.util.Scanner;
 import model.logic.Modelo;
 import view.View;
 
-public class Controller {
+public class Controller<T extends Comparable<T>> {
 
 	/* Instancia del Modelo*/
 	private Modelo modelo;
@@ -27,8 +27,8 @@ public class Controller {
 	{
 		Scanner lector = new Scanner(System.in);
 		boolean fin = false;
-		String dato = "";
-		String respuesta = "";
+		int dato = 0;
+		int respuesta = 0;
 
 		while( !fin ){
 			view.printMenu();
@@ -44,18 +44,18 @@ public class Controller {
 					break;
 
 				case 2:
-					view.printMessage("--------- \nDar cadena (simple) a ingresar: ");
-					dato = lector.next();
+					view.printMessage("--------- \nDar elemento a ingresar: ");
+					dato = lector.nextInt();
 					modelo.agregar(dato);
 					view.printMessage("Dato agregado");
 					view.printMessage("Numero actual de elementos " + modelo.darTamano() + "\n---------");						
 					break;
 
 				case 3:
-					view.printMessage("--------- \nDar cadena (simple) a buscar: ");
-					dato = lector.next();
-					respuesta = modelo.buscar(dato);
-					if ( respuesta != null)
+					view.printMessage("--------- \nDar elemento a buscar: ");
+					dato = lector.nextInt();
+					respuesta = (int) modelo.buscar(dato);
+					if ( respuesta != 0)
 					{
 						view.printMessage("Dato encontrado: "+ respuesta);
 					}
@@ -67,10 +67,10 @@ public class Controller {
 					break;
 
 				case 4:
-					view.printMessage("--------- \nDar cadena (simple) a eliminar: ");
-					dato = lector.next();
-					respuesta = modelo.eliminar(dato);
-					if ( respuesta != null)
+					view.printMessage("--------- \nDar elemento a eliminar: ");
+					dato = lector.nextInt();
+					respuesta = (int) modelo.eliminar(dato);
+					if ( respuesta != 0)
 					{
 						view.printMessage("Dato eliminado "+ respuesta);
 					}
